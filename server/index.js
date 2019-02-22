@@ -11,7 +11,7 @@ const server = new ApolloServer({
   resolvers,
   dataSources: () => ({
     googleAPI: new GoogleBooksAPI(),
-  })
+  }),
 });
 
 server.listen().then(({ url }) => {

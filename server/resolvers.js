@@ -1,11 +1,11 @@
 const resolvers = {
   Query: {
-    books: (root, _, { dataSources }) => dataSources.googleAPI.getBooks(),
+    search: (root, { searchString }, { dataSources }) => dataSources.googleAPI.getBooks(searchString),
   },
   Book: {
     id: ({ id }) => id,
     title: ({ volumeInfo: { title } }) => title,
-  }
+  },
 };
 
 module.exports = resolvers;

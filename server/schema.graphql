@@ -4,5 +4,5 @@ type Book {
 }
 
 type Query {
-  books: [Book]
+  search(searchString: String!): [Book]
 }

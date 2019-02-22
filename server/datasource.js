@@ -6,8 +6,8 @@ class GoogleBooksAPI extends RESTDataSource {
     this.baseURL = 'https://www.googleapis.com/books/v1/';
   }
 
-  async getBooks() {
-    const res = await this.get(`volumes?q=harry+potter`);
+  async getBooks(searchString) {
+    const res = await this.get(`volumes?q=${searchString.split(' ').join('+')}`);
     return res.items;
   }
 }
