@@ -7,8 +7,14 @@ class GoogleBooksAPI extends RESTDataSource {
   }
 
   async getBooks(searchString) {
-    const res = await this.get(`volumes?q=${searchString.split(' ').join('+')}`);
-    return res.items;
+    try {
+      const route = `volumes?q=${searchString.split(' ').join('+')}`;
+      console.log(`HTTP GET ${this.baseURL}${route}`);
+      const res = await this.get(route);
+      return res;
+    } catch (err) {
+      console.error('Error while making HTTP request', err);
+    }
   }
 }
 

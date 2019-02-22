@@ -1,8 +1,22 @@
+type ImageLink {
+  small: String
+  normal: String
+}
+
 type Book {
   id: String!
   title: String!
+  subtitle: String
+  authors: [String]
+  imageLinks: ImageLink
+  pageCount: Int
+}
+
+type SearchResult {
+  count: Int!
+  books: [Book]
 }
 
 type Query {
-  search(searchString: String!): [Book]
+  search(searchString: String!): SearchResult
 }
