@@ -1,4 +1,4 @@
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer, gql } = require('apollo-server-express');
 const fs = require('fs');
 const path = require('path');
 const resolvers = require('./resolvers');
@@ -14,6 +14,4 @@ const server = new ApolloServer({
   }),
 });
 
-server.listen().then(({ url }) => {
-  console.log(`Server running at ${url}`);
-});
+module.exports = server;

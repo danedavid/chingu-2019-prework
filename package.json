@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "server": "nodemon server/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "apollo-datasource-rest": "^0.3.2",
-    "apollo-server": "^2.4.6",
+    "apollo-server-express": "^2.4.6",
+    "express": "^4.16.4",
     "graphql": "^14.1.1",
     "nodemon": "^1.18.10"
   },

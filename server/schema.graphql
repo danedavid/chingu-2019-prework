@@ -5,7 +5,7 @@ type ImageLink {
 
 type Book {
   id: String!
-  title: String!
+  title: String
   subtitle: String
   authors: [String]
   imageLinks: ImageLink
