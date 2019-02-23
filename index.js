@@ -16,17 +16,18 @@ const serverRenderer = (req, res) => {
         <title>Server Rendered Page</title>
       </head>
       <body>
-        <div id="root">
-          ${ReactDOMServer.renderToString(<App/>)}
-        </div>
+        <div id="root">${ReactDOMServer.renderToString(<App/>)}</div>
+        <script src="static/client-bundle.js"></script>
       </body>
-      </html>
+    </html>
     `
   );
 };
 
 router.use('^/$', serverRenderer);
 
+// serve client bundle
+app.use('/static', express.static('client-dist'));
 app.use(router);
 
 apiServer.applyMiddleware({

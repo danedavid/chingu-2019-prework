@@ -4,7 +4,7 @@ const App = () => (
   <div>
     <h1>Hello World</h1>
     <p>
-      This was rendered through server
+      This was rendered through server!
     </p>
   </div>
 );

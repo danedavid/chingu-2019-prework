@@ -2,10 +2,10 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
 const client = {
-  entry: './client/App.js',
+  entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'client-dist'),
-    filename: 'js/bundle.js'
+    filename: 'client-bundle.js'
   },
   // 'mode' option - new in Webpack 4
   mode: 'development',
