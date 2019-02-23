@@ -1,6 +1,6 @@
-const { RESTDataSource } = require('apollo-datasource-rest');
+import { RESTDataSource } from 'apollo-datasource-rest';
 
-class GoogleBooksAPI extends RESTDataSource {
+export const GoogleBooksAPI = class extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = 'https://www.googleapis.com/books/v1/';
@@ -17,5 +17,3 @@ class GoogleBooksAPI extends RESTDataSource {
     }
   }
 }
-
-module.exports = { GoogleBooksAPI };

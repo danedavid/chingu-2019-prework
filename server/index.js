@@ -1,10 +1,7 @@
-const { ApolloServer, gql } = require('apollo-server-express');
-const fs = require('fs');
-const path = require('path');
-const resolvers = require('./resolvers');
-const { GoogleBooksAPI } = require('./datasource');
-
-const typeDefs = fs.readFileSync(path.resolve(__dirname, 'schema.graphql'), 'utf8');
+import { ApolloServer, gql } from 'apollo-server-express';
+import resolvers from './resolvers';
+import { GoogleBooksAPI } from './datasource';
+import typeDefs from './schema.graphql';
 
 const server = new ApolloServer({
   typeDefs: gql(typeDefs),
@@ -14,4 +11,4 @@ const server = new ApolloServer({
   }),
 });
 
-module.exports = server;
+export default server;

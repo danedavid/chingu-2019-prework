@@ -5,16 +5,28 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index.js",
+    "compile": "webpack"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
     "apollo-datasource-rest": "^0.3.2",
     "apollo-server-express": "^2.4.6",
+    "babel-loader": "^8.0.5",
     "express": "^4.16.4",
     "graphql": "^14.1.1",
-    "nodemon": "^1.18.10"
+    "ignore-styles": "^5.0.1",
+    "nodemon": "^1.18.10",
+    "raw-loader": "^1.0.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^1.7.2"
   },
   "nodemonConfig": {
     "ext": "js json graphql"
