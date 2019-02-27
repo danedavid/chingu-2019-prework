@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
@@ -23,10 +24,23 @@ module.exports = {
       },
     ]
   },
+  resolve: {
+    modules: [path.resolve(__dirname, './client/'), 'node_modules'],
+    extensions: ['.js', '.json'],
+	  enforceExtension: false,
+	  enforceModuleExtension: false,
+    alias: {
+      components: path.resolve(__dirname, './client/components'),
+    }
+  },
   plugins: [
+    new webpack.NamedModulesPlugin(),
     new HtmlWebPackPlugin({
       template: './client/index.html',
       filename: './index.html'
     }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    })
   ]
 };
