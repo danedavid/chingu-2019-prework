@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all -p compile-dev dev-server",
+    "clean": "rm -rf client-dist/* server-dist/*",
+    "start": "npm run clean && npm-run-all -p dev-client dev-server",
     "compile-dev": "webpack -w",
-    "dev-server": "nodemon server-dist/server-bundle.js"
+    "dev-client": "webpack-dev-server --config webpack.dev.config.js --open",
+    "dev-server": "npm run dev-init-server && npm-run-all -p dev-watch-server dev-serve-bundle",
+    "dev-init-server": "webpack --config webpack-server.dev.config.js",
+    "dev-watch-server": "webpack --watch --config webpack-server.dev.config.js",
+    "dev-serve-bundle": "nodemon server-dist/server-bundle.js",
+    "prod-server": "nodemon server-dist/server-bundle.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,9 +33,13 @@
     "react-dom": "^16.8.3",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1",
     "webpack-node-externals": "^1.7.2"
   },
   "nodemonConfig": {
     "ext": "js json graphql"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0"
   }
 }
