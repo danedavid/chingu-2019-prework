@@ -1,5 +1,6 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { hot } from 'react-hot-loader/root';
 import Home from './components/Home';
 import { ClientContext } from './helpers/context';
 import { GraphQLClient } from 'graphql-request';
@@ -18,8 +19,10 @@ const GlobalStyles = createGlobalStyle`
   }
 
   #root {
-    height: 100vh;
-    width: 100vw;
+    position: relative;
+    min-height: 100vh;
+    background-image: url("assets/bg.jpg");
+    background-size: cover;
     background-color: antiquewhite;
     padding: 20px 40px;
   }
@@ -32,4 +35,4 @@ const App = () => (
   </ClientContext.Provider>
 );
 
-export default App;
+export default hot(App);

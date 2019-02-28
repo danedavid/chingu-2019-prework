@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
-import { SearchInput, Button } from 'evergreen-ui';
+import { SearchInput, Button, Spinner } from 'evergreen-ui';
 import { SearchBarContainer } from '../styles';
+import {
+  INIT,
+  LOADING,
+  FAILED,
+} from '../helpers/constants';
+
+const getButtonProps = (status) => {
+  switch ( status ) {
+    case INIT     : return { text: 'Search', intent: 'success' };
+    case LOADING  : return { text: 'Loading', intent: 'warning' };
+    case FAILED   : return { text: 'Try Again', intent: 'danger' };
+    default       : return { text: 'Search', intent: 'success' };
+  }
+}
 
 const searchRef = React.createRef();
 
-export default ({ handleSearch }) => {
+export default ({ handleSearch, status }) => {
   const [value, setValue] = useState('');
 
   const onChange = ({ target: { value }}) => {
@@ -16,6 +30,8 @@ export default ({ handleSearch }) => {
       handleSearch(value);
     }
   };
+
+  const { intent, text } = getButtonProps(status);
 
   return (
     <SearchBarContainer>
@@ -30,11 +46,13 @@ export default ({ handleSearch }) => {
       />
       <Button
         appearance='primary'
+        intent={intent}
         marginTop={10}
-        iconAfter='search'
+        iconAfter={status === LOADING ? null : 'search'}
         onClick={() => handleSearch(value)}
       >
-        Search
+        { text }
+        { status === LOADING && <Spinner marginLeft={8} size={18} /> }
       </Button>
     </SearchBarContainer>
   );

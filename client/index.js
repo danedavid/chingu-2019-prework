@@ -14,10 +14,3 @@ if ( process.env.NODE_ENV === 'development' ) {
     document.getElementById('root')
   );
 }
-
-if ( module.hot ) {
-  module.hot.accept('./App', () => {
-    const NewApp = require('./App').default;
-    render(<NewApp />, document.getElementById('app'));
-  });
-}

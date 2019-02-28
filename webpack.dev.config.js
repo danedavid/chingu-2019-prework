@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './client/index.js',
@@ -12,6 +13,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'client-dist'),
     port: 3000,
+    writeToDisk: true,
   },
   module: {
     rules: [
@@ -41,6 +43,9 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: './client/assets', to: 'assets' },
+    ]),
   ]
 };
