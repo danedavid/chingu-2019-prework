@@ -107,7 +107,10 @@ export default ({ id }) => {
               maxHeight={500}
             >
               <Heading size={800}>{book.title}</Heading>
-              <Heading size={700} marginTop={2}>{ 'by ' + book.authors.join(', ')}</Heading>
+              {
+                book.authors &&
+                <Heading size={700} marginTop={2}>{ 'by ' + book.authors.join(', ')}</Heading>
+              }
               <Pane
                 marginTop={12}
                 paddingY={8}
