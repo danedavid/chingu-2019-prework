@@ -8,7 +8,7 @@ export const GoogleBooksAPI = class extends RESTDataSource {
 
   async getBooks(searchString) {
     try {
-      const route = `volumes?q=${searchString.split(' ').join('+')}`;
+      const route = `volumes?q=${searchString.split(' ').join('+')}&projection=lite&maxResults=30`;
       console.log(`HTTP GET ${this.baseURL}${route}`);
       const res = await this.get(route);
       return res;
