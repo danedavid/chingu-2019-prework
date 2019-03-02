@@ -13,11 +13,12 @@ const serverRenderer = (req, res) => {
     <!DOCTYPE html>
     <html>
       <head>
-        <title>Server Rendered Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dane's Book Finder</title>
       </head>
       <body>
         <div id="root">${ReactDOMServer.renderToString(<App/>)}</div>
-        <script src="static/client-bundle.js"></script>
+        <script src="client-bundle.js"></script>
       </body>
     </html>
     `
@@ -27,7 +28,7 @@ const serverRenderer = (req, res) => {
 router.use('^/$', serverRenderer);
 
 // serve client bundle
-app.use('/static', express.static('client-dist'));
+app.use('/', express.static('client-dist'));
 app.use(router);
 
 apiServer.applyMiddleware({

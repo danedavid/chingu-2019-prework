@@ -12,7 +12,10 @@
     "dev-init-server": "webpack --config webpack-server.dev.config.js",
     "dev-watch-server": "webpack --watch --config webpack-server.dev.config.js",
     "dev-serve-bundle": "nodemon server-dist/server-bundle.js",
-    "prod-server": "nodemon server-dist/server-bundle.js"
+    "build": "run-s clean prod-webpack",
+    "prod-webpack": "webpack --config webpack.prod.config.js",
+    "prod-server": "node server-dist/server-bundle.js",
+    "deploy": "run-s build prod-server"
   },
   "author": "",
   "license": "ISC",

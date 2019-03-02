@@ -1,5 +1,7 @@
+const webpack = require('webpack');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const client = {
   entry: './client/index.js',
@@ -7,11 +9,9 @@ const client = {
     path: path.resolve(__dirname, 'client-dist'),
     filename: 'client-bundle.js'
   },
-  // 'mode' option - new in Webpack 4
-  mode: 'development',
+  mode: 'production',
   module: {
     rules: [
-      // Babel loader for compiling JSX
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -21,6 +21,14 @@ const client = {
       },
     ]
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new CopyWebpackPlugin([
+      { from: './client/assets', to: 'assets' },
+    ]),
+  ]
 };
 
 const server = {
@@ -29,13 +37,11 @@ const server = {
     path: path.resolve(__dirname, 'server-dist'),
     filename: 'server-bundle.js'
   },
-  // 'mode' option - new in Webpack 4
-  mode: 'development',
+  mode: 'production',
   target: 'node',
   externals: [nodeExternals()],
   module: {
     rules: [
-      // Babel loader for compiling JSX
       {
         test: /\.js$/,
         exclude: /node_modules/,
