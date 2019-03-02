@@ -5,7 +5,9 @@ import Home from './components/Home';
 import { ClientContext } from './helpers/context';
 import { GraphQLClient } from 'graphql-request';
 
-const client = new GraphQLClient('http://localhost:4000/api');
+const url = process.env.NODE_ENV === 'development' ? 'http://localhost:4000/api' : '/api';
+
+const client = new GraphQLClient(url);
 
 const GlobalStyles = createGlobalStyle`
   * {
