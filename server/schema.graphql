@@ -8,6 +8,8 @@ type Book {
   title: String
   subtitle: String
   authors: [String]
+  description: String
+  previewLink: String
   imageLinks: ImageLink
   pageCount: Int
 }
@@ -19,4 +21,5 @@ type SearchResult {
 
 type Query {
   search(searchString: String!): SearchResult
+  book(id: String!): Book
 }

@@ -16,4 +16,15 @@ export const GoogleBooksAPI = class extends RESTDataSource {
       console.error('Error while making HTTP request', err);
     }
   }
+
+  async getBook(id) {
+    try {
+      const route = `volumes/${id}`;
+      console.log(`HTTP GET ${this.baseURL}${route}`);
+      const res = await this.get(route);
+      return res;
+    } catch (err) {
+      console.error('Error while making HTTP request', err);
+    }
+  }
 }
