@@ -2,6 +2,7 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { hot } from 'react-hot-loader/root';
 import Home from './components/Home';
+import Footer from './components/Footer';
 import { ClientContext } from './helpers/context';
 import { GraphQLClient } from 'graphql-request';
 
@@ -11,7 +12,7 @@ const client = new GraphQLClient(url);
 
 const GlobalStyles = createGlobalStyle`
   * {
-    outline: 0;
+    outline: none;
     box-sizing: border-box;
   }
 
@@ -34,6 +35,7 @@ const App = () => (
   <ClientContext.Provider value={{ client }}>
     <GlobalStyles/>
     <Home/>
+    <Footer/>
   </ClientContext.Provider>
 );
 
