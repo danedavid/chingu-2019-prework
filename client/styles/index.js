@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 export const HomeContainer = styled.div`
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
-  top: 40px;
+  margin-bottom: 120px;
   background-color: rgba(100, 100, 100, 0.6);
   padding: 20px;
   border-radius: 8px;
