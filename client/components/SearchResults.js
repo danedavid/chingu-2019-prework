@@ -17,7 +17,7 @@ export default ({ data: { search }, searchTerm }) => {
         color='#F7F9FD'
         textShadow='2px 2px 2px rgba(0, 0, 0, 0.6)'
       >
-        {`Search for "${searchTerm}" returned ${count} results:`}
+        {`Search for "${searchTerm}" returned ${count} results ( Click on a book for more details):`}
       </Heading>
       <Pane
         clearfix
