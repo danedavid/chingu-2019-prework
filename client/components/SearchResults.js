@@ -28,7 +28,7 @@ export default ({ data: { search }, searchTerm }) => {
         alignSelf='center'
       >
         {
-          books.map(book => (
+          books && books.map(book => (
             <Book
               key={book.id}
               book={book}
