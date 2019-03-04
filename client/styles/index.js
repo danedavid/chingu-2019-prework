@@ -8,6 +8,9 @@ export const HomeContainer = styled.div`
   background-color: rgba(100, 100, 100, 0.6);
   padding: 20px;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Heading = styled.div`
@@ -22,6 +25,7 @@ export const SearchBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: stretch;
   padding: 20px 0;
 `;
 

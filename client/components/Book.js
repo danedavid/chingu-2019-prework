@@ -33,8 +33,8 @@ export default ({ book }) => {
         width={150}
         height={220}
         float='left'
-        marginLeft={16}
-        marginBottom={16}
+        marginLeft={20}
+        marginBottom={20}
         background='#F5F6F7'
         border='#EDF0F2'
         padding={8}
@@ -43,10 +43,14 @@ export default ({ book }) => {
         alignItems='center'
         cursor='pointer'
         onClick={showDialog}
+        title={book.title}
       >
-        <Heading height={40} textAlign='center' size={400} color='#234361' >
-          { `${book.title.slice(0, 60)}${book.title.length > 60 ? '...' : ''}` }
-        </Heading>
+        {
+          book.title &&
+            <Heading height={40} textAlign='center' size={400} color='#234361' >
+              { `${book.title.slice(0, 60)}${book.title.length > 60 ? '...' : ''}` }
+            </Heading>
+        }
         <Pane
           position='relative'
           width={128}

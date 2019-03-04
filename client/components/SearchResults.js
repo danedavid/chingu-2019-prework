@@ -9,6 +9,8 @@ export default ({ data: { search }, searchTerm }) => {
       display='flex'
       flexDirection='column'
       alignItems='center'
+      justifyContent='center'
+      maxWidth={1024}
     >
       <Heading
         marginBottom={28}
@@ -23,6 +25,7 @@ export default ({ data: { search }, searchTerm }) => {
         clearfix
         display='flex'
         flexWrap='wrap'
+        alignSelf='center'
       >
         {
           books.map(book => (
